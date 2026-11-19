@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: working directory
-        run: pwd
+        run: pwd | ls -la
       - name: deploye useing kubernatess
         run: sh ./deploy.sh  
