@@ -1,11 +1,23 @@
 name: manual
 on:
-    workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "chose environment"
+        required: true
+        default: "staging"
+        type: choice
+        options: 
+          - staging
+          - production
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: working directory
         run: pwd | ls -la
-      - name: deploye useing kubernatess
-        run: sh ./deploy.sh  
+      - name: deploye useing dockerhub
+        run: docker compose -f -f build  
+      - name: deploye useing dockerhub
+        run: docker image push 
