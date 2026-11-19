@@ -1,0 +1,15 @@
+name: schedule_backeup
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  daily-backekup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: connect to DB
+        run: curl https//DB_URL
+
+      - name: copy the DB from source to dist
+        run: echo "coping DB items"
+                  
