@@ -1,0 +1,19 @@
+name: hybired_job
+
+on:
+  push:
+    branches:
+      - main
+      - test
+
+jobs:
+  continerize:
+    name: run_inside_container
+    runs-on: ubuntu-latest
+    container:
+      image: omaralmgosh/chat-app-image:prod
+      credentials:
+        username: ${{ secrets.DOCER_USERNAME}}
+        password: ${{ secrets.DOCKER_TOKEN}}
+    steps:
+      - run: echo 'run from omaralmgosh/chat-app-image:prod the container'         

@@ -19,5 +19,7 @@ jobs:
         run: pwd | ls -la
       - name: deploye useing dockerhub
         run: docker compose -f -f build  
+      - name: showing the chosing environment
+        run: echo "the environment is ${{ inputs.environment }}"
       - name: deploye useing dockerhub
         run: docker image push 
